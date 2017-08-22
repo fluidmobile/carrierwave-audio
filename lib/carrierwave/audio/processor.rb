@@ -50,7 +50,7 @@ module CarrierWave
               input_file_path: source, 
               input_options: input_options, 
               output_file_path: final_filename, 
-              output_options: output_options_for_format(format)
+              output_options: output_options_for_format(format).merge(options[:output_options])
             )
           end
 
