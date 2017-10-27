@@ -50,7 +50,7 @@ module CarrierWave
               input_file_path: source, 
               input_options: input_options, 
               output_file_path: final_filename, 
-              output_options: output_options_for_format(format).merge(options[:output_options])
+              output_options: output_options_for_format(format)
             )
           end
 
@@ -147,9 +147,10 @@ module CarrierWave
 
           if format.to_sym == :mp3
             {
-              type: format.to_s,
+              type: :mp3,
               rate: 44100,
-              compression: 128
+              channels: 1,
+              compression: 96,
             }.merge(shared_options)
           else
             {
